@@ -1,0 +1,40 @@
+
+/* ======= navbar ====== */
+
+#root {
+    height: 100vh;
+}
+
+.contianer {
+    width: 80%;
+    margin: auto;
+    height: 100%;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navlink {
+    color: black;
+    text-decoration: none;
+    margin-left: 1em;
+    color: #fff;
+}
+
+.border {
+    border: 2px solid black;
+}
+
+
+.navlink:hover, .active {
+    color: #000;
+}
+
+
+
+.logo {
+    color: #fff;
+}
