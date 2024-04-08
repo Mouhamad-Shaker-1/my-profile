@@ -6,7 +6,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 export default function Navbar() {
 
-    const [showNavbar, setShowNavbar] = useState(false)
+    const [showNavbar, setShowNavbar] = useState(true)
 
     function toggleNavbarSmallScreen() {
         setShowNavbar(prevShowNavbar => !prevShowNavbar)

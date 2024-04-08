@@ -10,7 +10,7 @@ h1 {
 
 header {
     min-height: 3.2rem;
-    padding: .7em 0;
+    padding: 1.4rem 0;
     background-color: #238D9D;
 }
 
@@ -32,5 +32,5 @@ nav {
 }
 
 section {
-    height: calc(100vh - 3.2rem);
+    height: calc(100vh - 6rem);
 }
