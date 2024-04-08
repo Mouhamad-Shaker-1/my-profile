@@ -1,4 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+h1 {
+    margin: 0;
+}
 
 header {
     min-height: 3.2rem;
@@ -12,7 +20,6 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition-delay: 2s ;
 }
 
 
@@ -25,5 +32,5 @@ nav {
 }
 
 section {
-    height: calc(100vh - 5.2rem);
+    height: calc(100vh - 3.2rem);
 }
