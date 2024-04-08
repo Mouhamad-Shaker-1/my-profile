@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 export default function Navbar() {
 
-    const [showNavbar, setShowNavbar] = useState(true)
-
+    const [showNavbar, setShowNavbar] = useState(window.innerWidth < 500 ? false : true) 
+    
     function toggleNavbarSmallScreen() {
         setShowNavbar(prevShowNavbar => !prevShowNavbar)
     }

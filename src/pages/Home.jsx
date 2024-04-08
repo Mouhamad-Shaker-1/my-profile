@@ -1,11 +1,23 @@
 
 import computerImg from "../assets/computer.jpg"
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSquareGithub } from '@fortawesome/free-brands-svg-icons'
+import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons'
+
 export default function Home() {
     return (
         <section>
-            <h1>i am the home</h1>
-            {/* <img src={computerImg} alt="" /> */}
+            <div className="constianer-intro">
+                <div className="intro">
+                    <h1>Hello, I am frondend developer using React, you are on my website now.</h1>
+                    <div className="container-icon">
+                        <FontAwesomeIcon className="icon" icon={faSquareGithub} />
+                        <FontAwesomeIcon className="icon" icon={faSquareFacebook} />
+                    </div>
+                </div>
+                <img className="img-intro" src={computerImg} />
+            </div>
         </section>
     )
 }

@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #F8F9FA;
+}
+
 h1 {
     margin: 0;
 }
@@ -24,7 +28,7 @@ nav {
 
 
 
-@media (min-width: 500px) {
+@media (min-width: 680px) {
     nav {
         flex-direction: row;
         display: flex;
@@ -33,4 +37,9 @@ nav {
 
 section {
     height: calc(100vh - 6rem);
+    width: 80%;
+    margin: 1em auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

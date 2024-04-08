@@ -6,7 +6,7 @@ export default function Layout() {
     return (
         <div>
             <Navbar />
-            <main className='bg-light'>
+            <main>
                 <Outlet />
             </main>
         </div>
