@@ -10,6 +10,7 @@ import {
 import Home from './pages/Home'
 import About from './pages/About'
 import Contect from './pages/Contect'
+import Projects from './pages/Projects'
 import Layout from './components/Layout'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route index element={<Home />} />
       <Route path='about' element={<About />} />
       <Route path='contect' element={<Contect />} />
+      <Route path='projects' element={<Projects />} />
     </Route>
   ))
 

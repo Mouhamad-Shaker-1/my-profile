@@ -1,11 +1,29 @@
 
 
-
 header {
-    height: 5.2rem;
+    min-height: 3.2rem;
+    padding: .7em 0;
+    background-color: #238D9D;
 }
 
-main {
-    height: 100vh;
-    background-color: black;
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition-delay: 2s ;
+}
+
+
+
+@media (min-width: 500px) {
+    nav {
+        flex-direction: row;
+        display: flex;
+    }
+}
+
+section {
+    height: calc(100vh - 5.2rem);
 }
