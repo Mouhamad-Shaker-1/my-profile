@@ -2,15 +2,27 @@ import { NavLink } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons'
 
 export default function Navbar() {
 
-    const [showNavbar, setShowNavbar] = useState(window.innerWidth < 500 ? false : true) 
+    const [showNavbar, setShowNavbar] = useState(window.innerWidth < 680 ? false : true) 
     
     function toggleNavbarSmallScreen() {
         setShowNavbar(prevShowNavbar => !prevShowNavbar)
     }
+
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 680) {
+            setShowNavbar(true)
+        } else {
+            setShowNavbar(false)
+        }
+    });
+        
+
+
 
     return (
         <header>
