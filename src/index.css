@@ -9,9 +9,6 @@ body {
 
 }
 
-main {
-    margin-top: 6rem;
-}
 
 h1 {
     margin: 0;
@@ -35,6 +32,10 @@ nav {
 
 }
 
+main {
+    margin-top: 6rem;
+}
+
 
 
 @media (min-width: 680px) {
@@ -47,7 +48,8 @@ nav {
 section {
     height: calc(100vh - 6rem);
     width: 80%;
-    margin: 1em auto;
+    margin: auto auto;
+
     display: flex;
     justify-content: center;
     align-items: center;
