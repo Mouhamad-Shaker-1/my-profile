@@ -9,6 +9,10 @@ body {
 
 }
 
+a {
+    text-decoration: none;
+}
+
 
 h1 {
     margin: 0;
@@ -46,10 +50,10 @@ main {
 }
 
 section {
-    height: calc(100vh - 6rem);
+    min-height: calc(100vh - 8rem);
     width: 80%;
     margin: auto auto;
-
+    padding: 1em 0;
     display: flex;
     justify-content: center;
     align-items: center;

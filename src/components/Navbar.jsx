@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -28,7 +28,7 @@ export default function Navbar() {
         <header>
             <div className="contianer contianer-header">
                 <div className="flex-space-between">
-                    <h1 className="logo">shaker</h1>
+                    <Link to='/'><h1 className="logo">shaker</h1></Link> 
                     <FontAwesomeIcon onClick={toggleNavbarSmallScreen} className="icon-list" icon={faBars} />
                 </div>
                 {showNavbar && <nav>
