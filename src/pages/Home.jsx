@@ -1,5 +1,5 @@
 
-import computerImg from "../assets/computer.jpg"
+import computerImg from "../img/computer.jpg"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareGithub } from '@fortawesome/free-brands-svg-icons'
@@ -7,7 +7,7 @@ import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons'
 
 export default function Home() {
     return (
-        <section className="home-section">
+        <section>
             <div className="constianer-intro">
                 <div className="intro">
                     <h1>Hello, I am frondend developer using React, you are on my website now.</h1>

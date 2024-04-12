@@ -37,9 +37,34 @@ nav {
 }
 
 main {
+    min-height: calc(100vh - 8rem);
+    width: 80%;
+    margin: auto;
+    padding: 1em 0;
     margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+small {
+    color: gray;
+}
+
+button {
+    background-color: #238D9D;
+    padding: .17em .5em;
+    color: #fff;
+    border: none;
+    border-radius: .4em;
+    font-size: 1.1rem;
+}
+
+button:hover {
+    border: 1.5px solid #238D9D;
+    background-color: #F8F9FA;
+    color: #238D9D;
+}
 
 
 @media (min-width: 680px) {
@@ -50,11 +75,5 @@ main {
 }
 
 section {
-    min-height: calc(100vh - 8rem);
-    width: 80%;
-    margin: auto auto;
-    padding: 1em 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
 }
