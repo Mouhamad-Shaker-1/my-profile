@@ -59,6 +59,9 @@
 
 /* ======= home intro section ========= */
 
+.section-home {
+    height: calc(100vh - 8rem);
+}
 
 .constianer-intro {
     height: 100%;
@@ -169,7 +172,7 @@
 }
 
 .project {
-    border: 2px solid #000;
+    border: 2px solid #C2C4C5;
     border-radius: .4em;
     display: flex;
     flex-direction: column;
@@ -182,7 +185,7 @@
     border-radius: .4em .4em 0 0;
 }
 
-.lang {
+.lang-projects-page {
     margin: .3em 0;
 }
 
@@ -202,3 +205,64 @@
 
 
 /* ========== porject section media ============= */
+
+
+/* ========== project detail section ============ */
+
+
+.section-project-detail {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-lang {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .5em;
+}
+
+.lang {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: .17em .5em;
+    /* padding: 0 .4em; */
+    border-radius: 40px;
+    border: 1px solid #C2C4C5;
+}
+
+.lang .icon {
+    font-size: 1.8rem;
+}
+
+.container-imgs-project {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 1em 0;
+}
+
+.imgs-project {
+    width: 100%;
+    border: 1px solid #C2C4C5;
+    border-radius: 0.4em;
+}
+
+
+/* ========== project detail section media ============ */
+
+@media (min-width: 680px) {
+    .imgs-project {
+        width: 48.5%;
+    }
+    .container-lang {
+        width: 50%;
+    }
+}
+
+/* ========== project detail section media ============ */

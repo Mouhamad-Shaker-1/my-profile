@@ -1,5 +1,5 @@
 
-import imgs from '../img/projects-img/quiz-app/quiz-app-image-1.png'
+import imgs from '../../img/projects-img/quiz-app/quiz-app-image-1.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHtml5 } from '@fortawesome/free-brands-svg-icons'
 
@@ -11,6 +11,7 @@ export default function Projects() {
                 <button>javascript</button>
                 <button>React</button> 
                 <button>React Router</button>
+                <button>All</button>
             </div>
             <div className="contianer-projects">
 
@@ -19,7 +20,7 @@ export default function Projects() {
                     <div className="contianer-info-project">
                         <h2>Quiz app</h2>
                         <small>feb 29 2024</small>
-                        <div className="lang">
+                        <div className="lang-projects-page">
                             <FontAwesomeIcon className='icon' icon={faHtml5} />
                             <FontAwesomeIcon className='icon' icon={faHtml5} />
                             <FontAwesomeIcon className='icon' icon={faHtml5} />
@@ -37,7 +38,7 @@ export default function Projects() {
                     <div className="contianer-info-project">
                         <h2>Quiz app</h2>
                         <small>feb 29 2024</small>
-                        <div className="lang">
+                        <div className="lang-projects-page">
                             <FontAwesomeIcon className='icon' icon={faHtml5} />
                             <FontAwesomeIcon className='icon' icon={faHtml5} />
                             <FontAwesomeIcon className='icon' icon={faHtml5} />
@@ -55,7 +56,7 @@ export default function Projects() {
                     <div className="contianer-info-project">
                         <h2>Quiz app</h2>
                         <small>feb 29 2024</small>
-                        <div className="lang">
+                        <div className="lang-projects-page">
                             <FontAwesomeIcon className='icon' icon={faHtml5} />
                             <FontAwesomeIcon className='icon' icon={faHtml5} />
                             <FontAwesomeIcon className='icon' icon={faHtml5} />
@@ -73,7 +74,7 @@ export default function Projects() {
                     <div className="contianer-info-project">
                         <h2>Quiz app</h2>
                         <small>feb 29 2024</small>
-                        <div className="lang">
+                        <div className="lang-projects-page">
                             <FontAwesomeIcon className='icon' icon={faHtml5} />
                             <FontAwesomeIcon className='icon' icon={faHtml5} />
                             <FontAwesomeIcon className='icon' icon={faHtml5} />

@@ -5,9 +5,9 @@ to make the html and css to the project
 
 the plan now is
 
-1- add html css to project page
-2- add projects/:id 
-3- add html css to projects/:id
+1- add html css to project page // done
+2- add projects/:id // done
+3- add html css to projects/:id // done
 4- add the firebase setup
 5- make the api.js file to call the data
 6- make the project in componenet
