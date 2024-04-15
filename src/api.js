@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc, query, where } from "firebase/firestore/lite";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA_2X9z4cArD0vJjHGDg_vcJFLpnyPnP7A",
@@ -26,12 +26,15 @@ export async function getProjects() {
     return dataProjects
 }
 
-export async function getProject(id) {
-    const projectRef = doc(db, 'projects', id)
-    const projectSnapshot = await getDoc(projectRef)
+export async function getProject(name) {
+    
+    const q = query(collectionProjectsRef, where('name', '==', name))
+    const projectSnapshot = await getDocs(q)
+    console.log(projectSnapshot.docs[0].data())
 
     return {
-        ...projectSnapshot.data(),
+        ...projectSnapshot.docs[0].data(),
         id: projectSnapshot.id
     }
+
 }

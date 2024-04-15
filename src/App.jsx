@@ -14,6 +14,7 @@ import Projects from './pages/projects/Projects'
 import ProjectsDetail from './pages/projects/ProjectDetail'
 import Layout from './components/Layout'
 
+
 function App() {
  
   const router = createBrowserRouter(createRoutesFromElements(
