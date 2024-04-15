@@ -1,5 +1,6 @@
 
-import imgs from '../../img/projects-img/quiz-app/quiz-app-image-1.png'
+import imgs from '../../img/projects-img/quiz-app/quiz-app-1.png'
+// import imgs from '../../img/projects-img/quiz-app/quiz-app-1.png'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

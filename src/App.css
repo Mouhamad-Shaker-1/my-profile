@@ -133,6 +133,10 @@
     margin-right: .5em;
 }
 
+.container-about-info p {
+    margin-bottom: 1em;
+}
+
 /* ========== about frist section media ============ */
 
 @media (min-width: 800px) {
