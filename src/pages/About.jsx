@@ -1,5 +1,5 @@
 
-import aboutImg from '../img/web-development.png'
+// import aboutImg from ''
 import { Link } from "react-router-dom"
 
 

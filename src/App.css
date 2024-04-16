@@ -204,6 +204,7 @@
 @media (min-width: 680px) {
     .project {
         width: 48.5%;
+        flex-grow: 0;
     }
 }
 
