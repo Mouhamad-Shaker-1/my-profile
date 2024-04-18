@@ -71,6 +71,10 @@ section {
     width: 100%;
 }
 
+a {
+    color: black;
+}
+
 hr {
     width: 100%;
     z-index: -1;

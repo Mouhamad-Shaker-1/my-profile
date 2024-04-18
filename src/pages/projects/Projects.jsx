@@ -1,7 +1,7 @@
 
 import Project from "../../components/project"
 import { getProjects } from "../../api.js"
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, Link } from "react-router-dom"
 
 export async function loader() {
     const projectsData = await getProjects()

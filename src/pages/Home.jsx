@@ -1,5 +1,5 @@
 
-import computerImg from "../../public/img/computer.jpg"
+import computerImg from "/img/computer.jpg"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareGithub } from '@fortawesome/free-brands-svg-icons'

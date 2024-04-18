@@ -1,13 +1,22 @@
 
-// import imgs from '../../../public/img/quiz-app/quiz-app-1.png'
-// import imgs from '../../img/projects-img/quiz-app/quiz-app-1.png'
-
-// import imgs from '../../../public/img/quiz-app/quiz-app-1.png'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHtml5 } from '@fortawesome/free-brands-svg-icons'
+import { faCss3Alt } from '@fortawesome/free-brands-svg-icons'
+import { faJs } from '@fortawesome/free-brands-svg-icons'
+import { faReact } from '@fortawesome/free-brands-svg-icons'
+import { connectFunctionsEmulator } from 'firebase/functions'
+import { useLoaderData, useParams } from 'react-router-dom'
+
+import { getProject } from '../../api'
+
+export async function loader({ params }) {
+    const project = await getProject(params.id)
+    return project
+}
 
 export default function ProjectDetail() {
+
+    const projectData = useLoaderData()
  
     return (
         <section className='section-project-detail'>
@@ -51,9 +60,9 @@ export default function ProjectDetail() {
             <hr />
 
             <div className="container-imgs-project">
+                {/* <img className='imgs-project' src={imgs} />
                 <img className='imgs-project' src={imgs} />
-                <img className='imgs-project' src={imgs} />
-                <img className='imgs-project' src={imgs} />
+                <img className='imgs-project' src={imgs} /> */}
             </div>
         </section>
     )

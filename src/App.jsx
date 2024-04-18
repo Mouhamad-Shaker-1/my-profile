@@ -11,7 +11,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contect from './pages/Contect'
 import Projects, {loader as loaderProjects} from './pages/projects/Projects'
-import ProjectsDetail from './pages/projects/ProjectDetail'
+import ProjectsDetail, {loader as loaderProjectsDetail} from './pages/projects/ProjectDetail'
 import Layout from './components/Layout'
 
 // import { getProjects } from './api';
@@ -28,7 +28,7 @@ function App() {
       <Route path='about' element={<About />} />
       <Route path='contect' element={<Contect />} />
       <Route path='projects' loader={loaderProjects} element={<Projects />} />
-      <Route path='projects/:id' element={<ProjectsDetail />} />
+      <Route path='projects/:id' loader={loaderProjectsDetail} element={<ProjectsDetail />} />
     </Route>
   ))
 
