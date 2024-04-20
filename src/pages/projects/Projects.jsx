@@ -1,22 +1,26 @@
-
+import { Suspense } from "react"
 import Project from "../../components/project"
+import Loading from "../../components/Loading"
 import { getProjects } from "../../api.js"
-import { useLoaderData, Link } from "react-router-dom"
+import { useLoaderData, defer, Await } from "react-router-dom"
 
 export async function loader() {
-    const projectsData = await getProjects()
-    return projectsData
+    const projectsData = getProjects()
+    return defer({projectsData: projectsData})
 }
 
 export default function Projects() {
-    const projects = useLoaderData()
+    const data = useLoaderData()
 
-    const projectElements = projects.map(project => {
-        return <Project key={project.id} data={project} />
-    }) 
+    
+    function handleAwait(projectsData) {
+        return projectsData.map(project => {
+            return <Project key={project.id} data={project} />
+        })
+    }
 
     return (
-        <section>
+        <section className="section-projects">
             <div className="contianer-search-types">
                 <button>HTML CSS</button>
                 <button>javascript</button>
@@ -25,7 +29,12 @@ export default function Projects() {
                 <button>All</button>
             </div>
             <div className="contianer-projects">
-                {projectElements}
+                {/* <Loading /> */}
+                <Suspense fallback={<Loading />}>
+                    <Await resolve={data.projectsData}>
+                        {(projectsData) => handleAwait(projectsData)}
+                    </Await>
+                </Suspense>
             </div>
         </section>
     )

@@ -30,7 +30,7 @@ export async function getProject(name) {
     
     const q = query(collectionProjectsRef, where('name', '==', name))
     const projectSnapshot = await getDocs(q)
-    console.log(projectSnapshot.docs[0].data())
+    // console.log(projectSnapshot.docs[0].data())
 
     return {
         ...projectSnapshot.docs[0].data(),

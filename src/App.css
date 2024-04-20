@@ -1,4 +1,12 @@
 
+.contianer-loading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* ======= navbar ====== */
 
 
@@ -166,7 +174,14 @@
     gap: .5em;
 }
 
+.section-projects {
+    height: calc(100vh - 8rem);
+}
+
+
+
 .contianer-projects {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

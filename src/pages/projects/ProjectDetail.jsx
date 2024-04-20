@@ -7,87 +7,105 @@ import { faReact } from '@fortawesome/free-brands-svg-icons'
 import { faCode } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-import { useLoaderData, useParams, Link } from 'react-router-dom'
+import { useLoaderData, Link, defer, Await } from 'react-router-dom'
+import { Suspense } from 'react'
 
 import { getProject } from '../../api'
-
+import Loading from "../../components/Loading"
+ 
 export async function loader({ params }) {
-    const project = await getProject(params.id)
-    return project
+    const projectData = getProject(params.id)
+    return defer({projectData: projectData})
 }
 
 export default function ProjectDetail() {
 
     const projectData = useLoaderData()
 
-    const languages = getValuesFromObject(projectData.languages)
-    const images = getValuesFromObject(projectData.imagesName)
-    console.log(projectData)
+    function handleAwait(projectData) {
 
-    const imgsProject = images.map(img => {
+        const languages = getValuesFromObject(projectData.languages)
+        const images = getValuesFromObject(projectData.imagesName)
+    
+        const imgsProject = images.map(img => {
+            return (
+                <img className='imgs-project' src={`/img/projects-img/${projectData.name}/${img}.png`}/>
+            )
+        })
+    
+        const iconProject = languages.map(lang => {
+            if (lang == 'HTML') {
+                return (
+                    <div className="lang">
+                        <FontAwesomeIcon key={lang} className='icon' icon={faHtml5} />
+                        <p>{ lang }</p>
+                    </div>
+                )
+            } else if (lang == 'CSS') {
+                return (
+                    <div className="lang">
+                        <FontAwesomeIcon key={lang} className='icon' icon={faCss3Alt} />
+                        <p>{ lang }</p>
+                    </div>
+                )
+            } else if (lang == "javascript") {
+                return (
+                    <div className="lang">
+                        <FontAwesomeIcon key={lang} className='icon' icon={faJs} />
+                        <p>{ lang }</p>
+                    </div>
+                )
+            } else if (lang == "react") {
+                return (
+                    <div className="lang">
+                        <FontAwesomeIcon key={lang} className='icon' icon={faReact} />
+                        <p>{ lang }</p>
+                    </div>
+                )
+            }
+        })
+
         return (
-            <img className='imgs-project' src={`/img/projects-img/${projectData.name}/${img}.png`}/>
-        )
-    })
+            <>
+                <h1>{ projectData.name }</h1>
+                <hr />
+                <div className="container-lang">
+                    <Link to={ projectData.linkDemo }>
+                        <div className="lang">
+                            <FontAwesomeIcon className='icon' icon={faCode} />
+                            <p>Demo</p>
+                        </div>
+                    </Link>
+                    
+                    <Link to={projectData.linkGethub}>
+                        <div className="lang">
+                            <FontAwesomeIcon className='icon' icon={faGithub} />
+                            <p>Gethub</p>
+                        </div>
+                    </Link>
 
-    const iconProject = languages.map(lang => {
-        if (lang == 'HTML') {
-            return (
-                <div className="lang">
-                    <FontAwesomeIcon key={lang} className='icon' icon={faHtml5} />
-                    <p>{ lang }</p>
+                    {iconProject}
                 </div>
-            )
-        } else if (lang == 'CSS') {
-            return (
-                <div className="lang">
-                    <FontAwesomeIcon key={lang} className='icon' icon={faCss3Alt} />
-                    <p>{ lang }</p>
+                <hr />
+                <p className="description">{ projectData.description }</p>
+                <hr />
+
+                <div className="container-imgs-project">
+                    {imgsProject}
                 </div>
-            )
-        } else if (lang == "javascript") {
-            return (
-                <div className="lang">
-                    <FontAwesomeIcon key={lang} className='icon' icon={faJs} />
-                    <p>{ lang }</p>
-                </div>
-            )
-        } else if (lang == "react") {
-            return (
-                <div className="lang">
-                    <FontAwesomeIcon key={lang} className='icon' icon={faReact} />
-                    <p>{ lang }</p>
-                </div>
-            )
-        }
-    })
+            </>
+        )
+    }
+
+
  
     return (
         <section className='section-project-detail'>
-            <h1>{ projectData.name }</h1>
-            <hr />
-            <div className="container-lang">
-                <Link to={ projectData.link }>
-                    <div className="lang">
-                        <FontAwesomeIcon className='icon' icon={faCode} />
-                        <p>Demo</p>
-                    </div>
-                </Link>
-                
-                <div className="lang">
-                    <FontAwesomeIcon className='icon' icon={faGithub} />
-                    <p>Gethub</p>
-                </div>
-
-                {iconProject}
-            </div>
-            <hr />
-            <p className="description">{ projectData.description }</p>
-            <hr />
-
-            <div className="container-imgs-project">
-                {imgsProject}
-            </div>
+            <Suspense fallback={<Loading />}>
+                <Await resolve={projectData.projectData}>
+                    {(projectData) => handleAwait(projectData)}
+                </Await>
+            </Suspense>
         </section>
     )
 }
