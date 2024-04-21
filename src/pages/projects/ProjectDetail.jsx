@@ -67,6 +67,9 @@ export default function ProjectDetail() {
 
         return (
             <>
+                <Link to='../projects'>
+                    <p className='go-back'>go back</p>
+                </Link>
                 <h1>{ projectData.name }</h1>
                 <hr />
                 <div className="container-lang">
@@ -101,6 +104,7 @@ export default function ProjectDetail() {
  
     return (
         <section className='section-project-detail'>
+
             <Suspense fallback={<Loading />}>
                 <Await resolve={projectData.projectData}>
                     {(projectData) => handleAwait(projectData)}

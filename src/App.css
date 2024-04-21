@@ -231,9 +231,18 @@
 
 
 .section-project-detail {
+    position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.go-back {
+    color: gray;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .container-lang {
