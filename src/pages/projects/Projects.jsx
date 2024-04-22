@@ -13,48 +13,101 @@ export async function loader() {
 export default function Projects() {
     const data = useLoaderData()
     const [searchParams, setSearchParams] = useSearchParams()
-
-    console.log(searchParams.get('type'))
-    
+    const typeFilter = searchParams.get('type')
 
     
-    function handleAwait(projectsData) {
+    function handleFilterChange(key, value) {
+        setSearchParams(prevParams => {
+            if (value === null) {
+                prevParams.delete(key)
+            } else {
+                prevParams.set(key, value)
+            }
+            return prevParams
+        })
+    }
+    
+    function renderProjects(projectsData) {
 
-        const filterType = searchParams.get('type')
+        let displayedProjects = typeFilter 
+            ? projectsData.filter(pro => pro.languages.includes(typeFilter))
+            : projectsData
         
-        // const prjectsDataFilter = projectsData.filter(project => {
-        //     console.log(project.languages)
-        //     // return true
-        //     return project.languages.map(lang => {
-        //         console.log(lang)
-        //         if (filterType === lang) {
-        //             return true
-        //         } else {
-        //             return false
-        //         }
-        //     })
-        // })
-
-        return projectsData.map(project => {
-            return <Project key={project.id} data={project} />
+        return displayedProjects.map(project => {
+            return <Project
+                state={{
+                    search: `?${searchParams.toString()}`
+                }}
+                key={project.id}
+                data={project}
+            />
         })
     }
 
     return (
         <section className="section-projects">
             <div className="contianer-search-types">
-                <button onClick={() => setSearchParams({type: 'HTML'})}>HTML</button>
-                <button onClick={() => setSearchParams({type: 'CSS'})}>CSS</button>
-                <button onClick={() => setSearchParams({type: 'javascript'})}>javascript</button>
-                <button onClick={() => setSearchParams({type: 'react'})}>React</button> 
-                <button onClick={() => setSearchParams({type: 'react router'})}>React Router</button>
-                <button onClick={() => setSearchParams({})}>All</button>
+
+                <button 
+                    onClick={
+                        () => handleFilterChange('type', 'HTML')
+                    }
+                    className={typeFilter === 'HTML' ? 'selected' : ''}
+                >
+                    HTML
+                </button>
+
+                <button 
+                    onClick={
+                        () => handleFilterChange('type', 'CSS')
+                    }
+                    className={typeFilter === 'CSS' ? 'selected' : ''}
+                >
+                    CSS
+                </button>
+
+                <button 
+                    onClick={
+                        () => handleFilterChange('type', 'javascript')
+                    }
+                    className={typeFilter === 'javascript' ? 'selected' : ''}
+                >
+                    javascript
+                </button>
+
+                <button 
+                    onClick={
+                        () => handleFilterChange('type', 'react')
+                    }
+                    className={typeFilter === 'react' ? 'selected' : ''}
+                >
+                    React
+                </button>
+
+                <button 
+                    onClick={
+                        () => handleFilterChange('type', 'react router')
+                    }
+                    className={typeFilter === 'react router' ? 'selected' : ''}
+                >
+                    React Router
+                </button>
+
+                <button 
+                    onClick={
+                        () => handleFilterChange('type', null)
+                    }
+                    className={typeFilter === null ? 'selected' : ''}
+                >
+                    All
+                </button>
+
             </div>
             <div className="contianer-projects">
                 {/* <Loading /> */}
                 <Suspense fallback={<Loading />}>
                     <Await resolve={data.projectsData}>
-                        {(projectsData) => handleAwait(projectsData)}
+                        {(projectsData) => renderProjects(projectsData)}
                     </Await>
                 </Suspense>
             </div>

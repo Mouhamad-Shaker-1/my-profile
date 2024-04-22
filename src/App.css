@@ -93,7 +93,6 @@
 .icon {
     font-size: 2rem;
     margin-right: .4em;
-    cursor: pointer;
     color: #238D9D;
 }
 
@@ -178,6 +177,12 @@
     height: calc(100vh - 8rem);
 }
 
+
+.selected {
+    border: 1.5px solid #238D9D;
+    background-color: #F8F9FA;
+    color: #238D9D;
+}
 
 
 .contianer-projects {

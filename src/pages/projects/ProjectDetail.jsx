@@ -7,7 +7,7 @@ import { faReact } from '@fortawesome/free-brands-svg-icons'
 import { faCode } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-import { useLoaderData, Link, defer, Await } from 'react-router-dom'
+import { useLoaderData, Link, defer, Await, useLocation } from 'react-router-dom'
 import { Suspense } from 'react'
 
 import { getProject } from '../../api'
@@ -21,6 +21,7 @@ export async function loader({ params }) {
 export default function ProjectDetail() {
 
     const projectData = useLoaderData()
+    const location = useLocation()
 
     function handleAwait(projectData) {
 
@@ -29,35 +30,35 @@ export default function ProjectDetail() {
     
         const imgsProject = images.map(img => {
             return (
-                <img className='imgs-project' src={`/img/projects-img/${projectData.name}/${img}.png`}/>
+                <img key={img} className='imgs-project' src={`/img/projects-img/${projectData.name}/${img}.png`}/>
             )
         })
     
         const iconProject = languages.map(lang => {
             if (lang == 'HTML') {
                 return (
-                    <div className="lang">
+                    <div key={lang} className="lang">
                         <FontAwesomeIcon key={lang} className='icon' icon={faHtml5} />
                         <p>{ lang }</p>
                     </div>
                 )
             } else if (lang == 'CSS') {
                 return (
-                    <div className="lang">
+                    <div key={lang} className="lang">
                         <FontAwesomeIcon key={lang} className='icon' icon={faCss3Alt} />
                         <p>{ lang }</p>
                     </div>
                 )
             } else if (lang == "javascript") {
                 return (
-                    <div className="lang">
+                    <div key={lang} className="lang">
                         <FontAwesomeIcon key={lang} className='icon' icon={faJs} />
                         <p>{ lang }</p>
                     </div>
                 )
             } else if (lang == "react") {
                 return (
-                    <div className="lang">
+                    <div key={lang} className="lang">
                         <FontAwesomeIcon key={lang} className='icon' icon={faReact} />
                         <p>{ lang }</p>
                     </div>
@@ -67,7 +68,7 @@ export default function ProjectDetail() {
 
         return (
             <>
-                <Link to='../projects'>
+                <Link to={`../projects${location.state.search}`}>
                     <p className='go-back'>go back</p>
                 </Link>
                 <h1>{ projectData.name }</h1>

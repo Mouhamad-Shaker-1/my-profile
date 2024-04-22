@@ -8,7 +8,7 @@ import { faHtml5 } from '@fortawesome/free-brands-svg-icons'
 import { faCss3Alt } from '@fortawesome/free-brands-svg-icons'
 import { faJs } from '@fortawesome/free-brands-svg-icons'
 import { faReact } from '@fortawesome/free-brands-svg-icons'
-import { connectFunctionsEmulator } from 'firebase/functions'
+
 
 export default function Project(props) {
 
@@ -30,7 +30,7 @@ export default function Project(props) {
 
     return (
         <div className="project">
-            <Link to={props.data.name}>
+            <Link state={props.state} to={props.data.name}>
                 <img className='img-project' src={srcImg}/>
                 <div className="contianer-info-project">
                     <h2>{ props.data.name }</h2>
