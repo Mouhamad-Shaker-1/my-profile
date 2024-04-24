@@ -129,7 +129,7 @@
     
 }
 
-.about-title {
+.title {
     display: flex;
     justify-content: center;
     margin-bottom: .5em;
@@ -189,7 +189,7 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 1em;
     margin: 1em 0;
@@ -201,6 +201,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    min-height: 447px;
     /* width: 100%; */
 }
 
@@ -300,3 +301,66 @@
 }
 
 /* ========== project detail section media ============ */
+
+
+/* ================= contact section =============== */
+
+.section-contact {
+    height: calc(100vh - 8rem);
+}
+
+.contianer-info-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contianer-info-contact h2 {
+    margin-bottom: .5em;
+}
+
+.contianer-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-contact {
+    margin: 1rem auto;
+}
+
+.contianer-info-icons {
+    margin: 1.3em 0;
+}
+
+.contianer-info-icons {
+    /* width: 30%; */
+    display: flex;
+    align-items: center;
+}
+
+.contianer-info-icons .icon {
+    color: #032c34;
+    height: 1.3rem;
+}
+ 
+
+/* ================= contact section media =============== */
+
+
+@media (min-width: 680px) {
+    .contianer-info-contact {
+        width: 48%;
+    }
+    .contianer-inputs {
+        width: 48%;
+    }
+    .contianer-info-input {
+        flex-direction: row;
+    }
+    .contianer-info-input {
+        margin: 6em 0;
+    }
+}
+
+
+/* ================= contact section media =============== */

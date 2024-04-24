@@ -20,6 +20,8 @@ export default function Project(props) {
         )
     })
 
+    const x = 'asdfasdfasdfasdf asldkjfn dfjas fjk jfa  '
+
     return (
         <div className="project">
             <Link state={props.state} to={props.data.name}>
@@ -30,7 +32,12 @@ export default function Project(props) {
                     <div className="lang-projects-page">
                         {iconProject}
                     </div>
-                    <p className="description">{ props.data.description.substring(0, 210) + '....' }</p>
+                    <p className="description">{
+                        props.data.description.length > 210
+                            ? props.data.description.substring(0, 210).trim() + '....'
+                            : props.data.description
+                    }
+                    </p>
 
                 </div>
             </Link>

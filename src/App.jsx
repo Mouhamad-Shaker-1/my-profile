@@ -9,7 +9,7 @@ import {
 
 import Home from './pages/Home'
 import About from './pages/About'
-import Contect from './pages/Contect'
+import Contact, {action as contactAction} from './pages/Contact'
 import Projects, {loader as loaderProjects} from './pages/projects/Projects'
 import ProjectsDetail, {loader as loaderProjectsDetail} from './pages/projects/ProjectDetail'
 import Layout from './components/Layout'
@@ -26,7 +26,7 @@ function App() {
     <Route path='/' element={<Layout />}>
       <Route index element={<Home />} />
       <Route path='about' element={<About />} />
-      <Route path='contect' element={<Contect />} />
+      <Route path='contect' action={contactAction} element={<Contact />} />
       <Route path='projects' loader={loaderProjects} element={<Projects />} />
       <Route path='projects/:id' loader={loaderProjectsDetail} element={<ProjectsDetail />} />
     </Route>

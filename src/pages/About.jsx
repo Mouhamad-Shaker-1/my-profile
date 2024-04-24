@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 export default function About() {
     return (
         <section>
-            <h1 className='about-title'>About</h1>
+            <h1 className='title'>About</h1>
             <div className="container-info-img">
                 <div className="container-about-info">    
                     <h2>Who am i?</h2>

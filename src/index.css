@@ -85,6 +85,20 @@ p {
     margin: 0;
 }
 
+input, textarea {
+    border: none;
+    margin: .4em 0;
+    background-color: #78D2D8;
+    border-radius: .4em;
+    padding: .5em;
+}
+
+textarea {
+    height: 8rem;
+}
+
+
+
 @media (min-width: 680px) {
     nav {
         flex-direction: row;
