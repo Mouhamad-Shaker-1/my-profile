@@ -1,14 +1,8 @@
-
-import { useEffect } from 'react'
-
 import { Link } from 'react-router-dom'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHtml5 } from '@fortawesome/free-brands-svg-icons'
-import { faCss3Alt } from '@fortawesome/free-brands-svg-icons'
-import { faJs } from '@fortawesome/free-brands-svg-icons'
-import { faReact } from '@fortawesome/free-brands-svg-icons'
 
+import iconsLang from '../icons'
 
 export default function Project(props) {
 
@@ -17,15 +11,13 @@ export default function Project(props) {
     const languages = getValuesFromObject(props.data.languages)
 
     const iconProject = languages.map(lang => {
-        if (lang == 'HTML') {
-            return <FontAwesomeIcon key={lang} className='icon' icon={faHtml5} />
-        } else if (lang == 'CSS') {
-            return <FontAwesomeIcon key={lang} className='icon' icon={faCss3Alt} />
-        } else if (lang == "javascript") {
-            return <FontAwesomeIcon key={lang} className='icon' icon={faJs} />
-        } else if (lang == "react") {
-            return <FontAwesomeIcon key={lang} className='icon' icon={faReact} />
-        }
+        return (
+            <FontAwesomeIcon
+                style={{ color: iconsLang[lang].color }}
+                key={lang} className='icon'
+                icon={iconsLang[lang].icon}
+            />
+        )
     })
 
     return (

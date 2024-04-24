@@ -1,7 +1,4 @@
 
-you are now in the line 13 in the about page
-to make the html and css to the project
-
 
 the plan now is
 

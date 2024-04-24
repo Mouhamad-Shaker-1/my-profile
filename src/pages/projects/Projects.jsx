@@ -3,7 +3,7 @@ import Project from "../../components/project"
 import Loading from "../../components/Loading"
 import { getProjects } from "../../api.js"
 import { useLoaderData, defer, Await, useSearchParams } from "react-router-dom"
-import { faL } from "@fortawesome/free-solid-svg-icons"
+
 
 export async function loader() {
     const projectsData = getProjects()

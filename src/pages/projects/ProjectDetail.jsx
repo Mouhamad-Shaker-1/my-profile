@@ -1,15 +1,12 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHtml5 } from '@fortawesome/free-brands-svg-icons'
-import { faCss3Alt } from '@fortawesome/free-brands-svg-icons'
-import { faJs } from '@fortawesome/free-brands-svg-icons'
-import { faReact } from '@fortawesome/free-brands-svg-icons'
 import { faCode } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import { useLoaderData, Link, defer, Await, useLocation } from 'react-router-dom'
 import { Suspense } from 'react'
 
+import iconsLang from '../../icons'
 import { getProject } from '../../api'
 import Loading from "../../components/Loading"
  
@@ -35,35 +32,16 @@ export default function ProjectDetail() {
         })
     
         const iconProject = languages.map(lang => {
-            if (lang == 'HTML') {
-                return (
-                    <div key={lang} className="lang">
-                        <FontAwesomeIcon key={lang} className='icon' icon={faHtml5} />
-                        <p>{ lang }</p>
-                    </div>
-                )
-            } else if (lang == 'CSS') {
-                return (
-                    <div key={lang} className="lang">
-                        <FontAwesomeIcon key={lang} className='icon' icon={faCss3Alt} />
-                        <p>{ lang }</p>
-                    </div>
-                )
-            } else if (lang == "javascript") {
-                return (
-                    <div key={lang} className="lang">
-                        <FontAwesomeIcon key={lang} className='icon' icon={faJs} />
-                        <p>{ lang }</p>
-                    </div>
-                )
-            } else if (lang == "react") {
-                return (
-                    <div key={lang} className="lang">
-                        <FontAwesomeIcon key={lang} className='icon' icon={faReact} />
-                        <p>{ lang }</p>
-                    </div>
-                )
-            }
+            return (
+                <div key={lang} className="lang">
+                    <FontAwesomeIcon
+                        style={{ color: iconsLang[lang].color }}
+                        key={lang} className='icon'
+                        icon={iconsLang[lang].icon}
+                    />
+                    <p>{ lang }</p>
+                </div>
+            )
         })
 
         return (
@@ -76,14 +54,14 @@ export default function ProjectDetail() {
                 <div className="container-lang">
                     <Link to={ projectData.linkDemo }>
                         <div className="lang">
-                            <FontAwesomeIcon className='icon' icon={faCode} />
+                            <FontAwesomeIcon style={{color:'#000'}} className='icon' icon={faCode} />
                             <p>Demo</p>
                         </div>
                     </Link>
                     
                     <Link to={projectData.linkGethub}>
                         <div className="lang">
-                            <FontAwesomeIcon className='icon' icon={faGithub} />
+                            <FontAwesomeIcon style={{color:'#000'}} className='icon' icon={faGithub} />
                             <p>Gethub</p>
                         </div>
                     </Link>
@@ -101,8 +79,6 @@ export default function ProjectDetail() {
         )
     }
 
-
- 
     return (
         <section className='section-project-detail'>
 
