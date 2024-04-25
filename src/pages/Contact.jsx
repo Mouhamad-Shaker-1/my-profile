@@ -1,13 +1,31 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Form } from 'react-router-dom'
-
+import emailjs from '@emailjs/browser';
 import iconsLang from "../icons"
 
 export async function action({ request }) {
     const formData = await request.formData()
-    // console.log(formData.get('email'))
 
-    // there you have do make a massege to email
+    emailjs.init({
+        publicKey: "V65bLJbRSl2M4FGk7",
+    })
+
+    const templateParams = {
+        user_name: formData.get('name'),
+        user_email: formData.get('email'),
+        message: formData.get('message'),
+        subject: formData.get('subject')
+      };
+      
+      emailjs.send('service_c1neyva', 'template_fbhguks', templateParams).then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+        },
+        (error) => {
+          console.log('FAILED...', error);
+        },
+      );
+
     return null
 }
 
@@ -52,7 +70,7 @@ export default function Contact() {
                     <input name='name' placeholder='Name' type="text" />
                     <input name='email' placeholder='Email' type="email" />
                     <input name='subject' placeholder='Subject' type="text" />
-                    <textarea name='massege' placeholder='Massege' />
+                    <textarea name='message' placeholder='Massege' />
                     <button className="btn-contact">Send Message</button>
                 </Form>
             </div>
