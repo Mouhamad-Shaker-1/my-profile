@@ -1,7 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Form } from 'react-router-dom'
+import { Form, useActionData, useNavigation, useSubmit } from 'react-router-dom'
+import { useEffect, useRef } from 'react';
+
 import emailjs from '@emailjs/browser';
 import iconsLang from "../icons"
+
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export async function action({ request }) {
     const formData = await request.formData()
@@ -15,27 +21,41 @@ export async function action({ request }) {
         user_email: formData.get('email'),
         message: formData.get('message'),
         subject: formData.get('subject')
-      };
-      
-      emailjs.send('service_c1neyva', 'template_fbhguks', templateParams).then(
-        (response) => {
-          console.log('SUCCESS!', response.status, response.text);
-        },
-        (error) => {
-          console.log('FAILED...', error);
-        },
-      );
-
-    return null
+    };
+    
+    try {
+        await emailjs.send('service_c1neyva', 'template_fbhguks', templateParams)
+        toast.success('you send the message successfully')
+        return null
+    } catch (err) {
+        toast.error(`${err.message}, try again`)
+        return err.message
+    }
 }
 
 
 export default function Contact() {
+
+    const navigation = useNavigation()
+    const errors = useActionData()
+    const formRef = useRef()
+    
+    const IsSubmitting = navigation.state === "submitting"
+        
+    useEffect(() => {
+        if (!IsSubmitting && errors == null) {
+            formRef.current.reset()
+        }
+    }, [IsSubmitting])
+
     return (
         <section className='section-contact'>
+            <ToastContainer />
             <h1 className="title">Contact</h1>
+                    
+            {/* { validationMassege(errors)} */}
+            
             <div className="contianer-info-input">
-
                 <div className="contianer-info-contact">
                     <h2>Get in taouch</h2>
                     <p>
@@ -66,14 +86,33 @@ export default function Contact() {
                     </div>
 
                 </div>
-                <Form replace method="post" className='contianer-inputs' action="">
-                    <input name='name' placeholder='Name' type="text" />
-                    <input name='email' placeholder='Email' type="email" />
+                <Form ref={formRef} replace method="post" className='contianer-inputs' action="">
+                    <input required name='name' placeholder='Name' type="text" />
+                    <input required name='email' placeholder='Email' type="email" />
                     <input name='subject' placeholder='Subject' type="text" />
-                    <textarea name='message' placeholder='Massege' />
-                    <button className="btn-contact">Send Message</button>
+                    <textarea required name='message' placeholder='Massege' />
+                    <button 
+                        
+                        disabled={IsSubmitting} 
+                        className="btn-contact"
+                    >
+                        { 
+                            IsSubmitting
+                                ? 'Sending...'
+                                : 'Send Message'
+                        }
+                    </button>
                 </Form>
             </div>
         </section>
     )
 }
+
+// function validationMassege(errors) {
+//     if (errors !== "success" && errors !== undefined) {
+        
+//         return <p style={{ color: 'red' }}>{ errors }, try again 😥😥</p>
+//     } else if (errors === "success") {
+//         return  <p style={{ color: 'green' }}>you send the message successfully 😄😄</p>
+//     }
+// }
