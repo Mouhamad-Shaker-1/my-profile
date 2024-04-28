@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-import { useLoaderData, Link, defer, Await, useLocation } from 'react-router-dom'
+import { useLoaderData, Link, defer, Await, useLocation, useAsyncError } from 'react-router-dom'
 import { Suspense } from 'react'
 
 import iconsLang from '../../icons'
@@ -19,6 +19,15 @@ export default function ProjectDetail() {
 
     const projectData = useLoaderData()
     const location = useLocation()
+
+    function ErrorElement() {
+        const errorAsync = useAsyncError();
+        throw {
+            message: errorAsync.message,
+            status: null,
+            statusText: 'there are something wrong in fetching data, if you are from syria open vpn it will work'
+        }
+    }
 
     function handleAwait(projectData) {
 
@@ -83,7 +92,7 @@ export default function ProjectDetail() {
         <section className='section-project-detail'>
 
             <Suspense fallback={<Loading />}>
-                <Await resolve={projectData.projectData}>
+                <Await errorElement={<ErrorElement />} resolve={projectData.projectData}>
                     {(projectData) => handleAwait(projectData)}
                 </Await>
             </Suspense>

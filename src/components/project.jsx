@@ -20,8 +20,6 @@ export default function Project(props) {
         )
     })
 
-    const x = 'asdfasdfasdfasdf asldkjfn dfjas fjk jfa  '
-
     return (
         <div className="project">
             <Link state={props.state} to={props.data.name}>

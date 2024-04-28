@@ -2,7 +2,8 @@ import { Suspense } from "react"
 import Project from "../../components/project"
 import Loading from "../../components/Loading"
 import { getProjects } from "../../api.js"
-import { useLoaderData, defer, Await, useSearchParams } from "react-router-dom"
+import { useLoaderData, defer, Await, useSearchParams, useAsyncError } from "react-router-dom"
+
 
 
 export async function loader() {
@@ -15,7 +16,6 @@ export default function Projects() {
     const [searchParams, setSearchParams] = useSearchParams()
     const typeFilter = searchParams.get('type')
 
-    
     function handleFilterChange(key, value) {
         setSearchParams(prevParams => {
             if (value === null) {
@@ -27,6 +27,15 @@ export default function Projects() {
         })
     }
     
+    function ErrorElement() {
+        const errorAsync = useAsyncError();
+        throw {
+            message: errorAsync.message,
+            status: null,
+            statusText: 'there are something wrong in fetching data, if you are from syria open vpn it will work'
+        }
+    }
+
     function renderProjects(projectsData) {
 
         let displayedProjects = typeFilter 
@@ -106,7 +115,7 @@ export default function Projects() {
             <div className="contianer-projects">
                 {/* <Loading /> */}
                 <Suspense fallback={<Loading />}>
-                    <Await resolve={data.projectsData}>
+                    <Await errorElement={<ErrorElement />} resolve={data.projectsData}>
                         {(projectsData) => renderProjects(projectsData)}
                     </Await>
                 </Suspense>

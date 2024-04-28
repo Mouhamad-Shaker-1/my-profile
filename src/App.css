@@ -7,6 +7,21 @@
     align-items: center;
 }
 
+.contianer-error {
+    height: calc(100vh - 8rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contianer-error h5 {
+    width: 50%;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+
 /* ======= navbar ====== */
 
 
