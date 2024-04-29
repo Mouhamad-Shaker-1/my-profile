@@ -356,6 +356,11 @@
     /* width: 30%; */
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+
+.contianer-info-icons:first-of-type {
+    cursor: auto;
 }
 
 .contianer-info-icons .icon {

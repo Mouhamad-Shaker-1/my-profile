@@ -7,6 +7,7 @@ import iconsLang from "../icons"
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { width } from '@fortawesome/free-brands-svg-icons/fa42Group';
 
 
 export async function action({ request }) {
@@ -71,14 +72,16 @@ export default function Contact() {
                         <p>mouhamad shaker</p>
                     </div>
 
-                    <div className="contianer-info-icons">
+
+                    <div onClick={() => window.location = "tel:0986698602"} className="contianer-info-icons">
                         <FontAwesomeIcon 
                             className='icon' 
                             icon={iconsLang.phone.icon} />
                         <p>0986698602</p>
                     </div>
 
-                    <div className="contianer-info-icons">
+
+                    <div onClick={() => window.location = "mailto:mouhamadshaker073@abc.com"} className="contianer-info-icons">
                         <FontAwesomeIcon 
                             className='icon' 
                             icon={iconsLang.email.icon} />
