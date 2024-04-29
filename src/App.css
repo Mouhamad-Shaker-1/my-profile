@@ -357,6 +357,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    user-select: none;
 }
 
 .contianer-info-icons:first-of-type {
