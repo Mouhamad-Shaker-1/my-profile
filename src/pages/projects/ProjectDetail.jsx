@@ -1,14 +1,20 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCode } from '@fortawesome/free-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-import { useLoaderData, Link, defer, Await, useLocation, useAsyncError } from 'react-router-dom'
+import { 
+        useLoaderData, 
+        Link, 
+        defer, 
+        Await, 
+        useLocation, 
+        useAsyncError } from 'react-router-dom'
 import { Suspense } from 'react'
 
 import iconsLang from '../../icons'
 import { getProject } from '../../api'
 import Loading from "../../components/Loading"
+
+console.log(iconsLang)
  
 export async function loader({ params }) {
     const projectData = getProject(params.id)
@@ -61,16 +67,22 @@ export default function ProjectDetail() {
                 <h1>{ projectData.name }</h1>
                 <hr />
                 <div className="container-lang">
-                    <Link to={ projectData.linkDemo }>
+                    <Link className='backColor' to={ projectData.linkDemo }>
                         <div className="lang">
-                            <FontAwesomeIcon style={{color:'#000'}} className='icon' icon={faCode} />
+                            <FontAwesomeIcon 
+                                style={{color: iconsLang.demo.color}} 
+                                className='icon' 
+                                icon={iconsLang.demo.icon} />
                             <p>Demo</p>
                         </div>
                     </Link>
                     
-                    <Link to={projectData.linkGethub}>
+                    <Link className='backColor' to={projectData.linkGethub}>
                         <div className="lang">
-                            <FontAwesomeIcon style={{color:'#000'}} className='icon' icon={faGithub} />
+                            <FontAwesomeIcon 
+                                style={{color: iconsLang.gethub.color}} 
+                                className='icon'
+                                icon={iconsLang.gethub.icon} />
                             <p>Gethub</p>
                         </div>
                     </Link>

@@ -22,7 +22,7 @@ export default function Project(props) {
 
     return (
         <div className="project">
-            <Link state={props.state} to={props.data.name}>
+            <Link className='backColor' state={props.state} to={props.data.name}>
                 <img className='img-project' src={srcImg}/>
                 <div className="contianer-info-project">
                     <h2>{ props.data.name }</h2>

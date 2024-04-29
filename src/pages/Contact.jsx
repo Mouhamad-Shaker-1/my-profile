@@ -7,7 +7,7 @@ import iconsLang from "../icons"
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { width } from '@fortawesome/free-brands-svg-icons/fa42Group';
+
 
 
 export async function action({ request }) {

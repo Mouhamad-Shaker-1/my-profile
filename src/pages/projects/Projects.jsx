@@ -2,7 +2,12 @@ import { Suspense } from "react"
 import Project from "../../components/project"
 import Loading from "../../components/Loading"
 import { getProjects } from "../../api.js"
-import { useLoaderData, defer, Await, useSearchParams, useAsyncError } from "react-router-dom"
+import { 
+        useLoaderData, 
+        defer, 
+        Await, 
+        useSearchParams, 
+        useAsyncError } from "react-router-dom"
 
 
 

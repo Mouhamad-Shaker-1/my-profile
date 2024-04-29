@@ -12,29 +12,21 @@ export default function About() {
                     <h2>Who am i?</h2>
                     <p>Hello again! i am happy to see you here,
                         My name is Mouhamad Shaker, 19 years old,
-                        I am from 
-                        <a target="_blank" href="https://en.wikipedia.org/wiki/Syria">
-                            <n /> Syria
+                        I am from <a target="_blank" href="https://en.wikipedia.org/wiki/Syria">
+                            Syria
                         </a>
                         , a self-learner who learned from a number of platforms,
-                        including the
-                        <a target="_blank" href="https://www.w3schools.com/">
-                            <n /> w3school <n />
+                        including the <a target="_blank" href="https://www.w3schools.com/">
+                            w3school
+                        </a> and <a target="_blank" href="https://scrimba.com/">
+                            scrimba
                         </a>
-                        and
-                        <a target="_blank" href="https://scrimba.com/">
-                            <n /> scrimba
-                        </a>
-                        ,
-                        <a target="_blank" href="https://www.youtube.com/@OctuCode">
-                            <n /> octucode <n />
-                        </a>
-                        platforms,
-                        and a student at the
-                        <a target="_blank" href="https://www.svuonline.org/">
-                            <n /> Syrian Virtual University <n />
-                        </a>
-                        in the field of information technology engineering,
+                        , <a target="_blank" href="https://www.youtube.com/@OctuCode">
+                            octucode
+                        </a> platforms,
+                        and a student at the <a target="_blank" href="https://www.svuonline.org/">
+                            Syrian Virtual University
+                        </a> in the field of information technology engineering,
                         and I did a number of training in the field of the web using the React library and the React Router library.
                     </p>
                     <div className='container-btn-info'>

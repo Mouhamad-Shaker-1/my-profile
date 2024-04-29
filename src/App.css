@@ -1,4 +1,8 @@
 
+.backColor {
+    color: black;
+}
+
 .contianer-loading {
     height: 100%;
     width: 100%;
@@ -16,9 +20,14 @@
 }
 
 .contianer-error h5 {
-    width: 50%;
     margin-bottom: 1em;
     text-align: center;
+}
+
+@media (min-width: 680px) {
+    .contianer-error h5 {
+        width: 50%;
+    }
 }
 
 
@@ -107,12 +116,11 @@
 
 .icon {
     font-size: 2rem;
-    margin-right: .4em;
-    color: #238D9D;
+    margin-right: .5em;
 }
 
 .container-icon {
-    margin-top: .8em;
+    margin: .8em 0;
     display: flex;
 }
 
