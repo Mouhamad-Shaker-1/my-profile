@@ -12,7 +12,7 @@ export default function Home() {
             <div className="constianer-intro">
                 <div className="intro">
                     <h1>
-                        Hello there, I am a junior front-end web developer who uses React and Firebase to build my projects. Welcome to my website.
+                        Hello there, I am a junior web developer who uses React and Firebase to build my projects. Welcome to my website.
                     </h1>
                     <div className="container-icon">
                         
