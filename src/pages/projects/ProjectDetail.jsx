@@ -14,7 +14,7 @@ import iconsLang from '../../icons'
 import { getProject } from '../../api'
 import Loading from "../../components/Loading"
 
-console.log(iconsLang)
+
  
 export async function loader({ params }) {
     const projectData = getProject(params.id)
@@ -25,15 +25,6 @@ export default function ProjectDetail() {
 
     const projectData = useLoaderData()
     const location = useLocation()
-
-    function ErrorElement() {
-        const errorAsync = useAsyncError();
-        throw {
-            message: errorAsync.message,
-            status: null,
-            statusText: 'there are something wrong in fetching data, if you are from syria open vpn it will work'
-        }
-    }
 
     function handleAwait(projectData) {
 
@@ -104,7 +95,7 @@ export default function ProjectDetail() {
         <section className='section-project-detail'>
 
             <Suspense fallback={<Loading />}>
-                <Await errorElement={<ErrorElement />} resolve={projectData.projectData}>
+                <Await resolve={projectData.projectData}>
                     {(projectData) => handleAwait(projectData)}
                 </Await>
             </Suspense>

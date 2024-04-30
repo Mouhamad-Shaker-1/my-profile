@@ -3,6 +3,11 @@
     color: black;
 }
 
+.flex {
+    display: flex;
+    gap: 1em;
+}
+
 .contianer-loading {
     height: 100%;
     width: 100%;

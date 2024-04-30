@@ -6,8 +6,8 @@ import {
         useLoaderData, 
         defer, 
         Await, 
-        useSearchParams, 
-        useAsyncError } from "react-router-dom"
+        useSearchParams } from "react-router-dom"
+import ErrorPage from "../../components/ErrorPage.jsx"
 
 
 
@@ -32,15 +32,6 @@ export default function Projects() {
         })
     }
     
-    function ErrorElement() {
-        const errorAsync = useAsyncError();
-        throw {
-            message: errorAsync.message,
-            status: null,
-            statusText: 'there are something wrong in fetching data, if you are from syria open vpn it will work'
-        }
-    }
-
     function renderProjects(projectsData) {
 
         let displayedProjects = typeFilter 
@@ -120,7 +111,7 @@ export default function Projects() {
             <div className="contianer-projects">
                 {/* <Loading /> */}
                 <Suspense fallback={<Loading />}>
-                    <Await errorElement={<ErrorElement />} resolve={data.projectsData}>
+                    <Await resolve={data.projectsData}>
                         {(projectsData) => renderProjects(projectsData)}
                     </Await>
                 </Suspense>

@@ -14,6 +14,8 @@ import Projects, {loader as loaderProjects} from './pages/projects/Projects'
 import ProjectsDetail, {loader as loaderProjectsDetail} from './pages/projects/ProjectDetail'
 import Layout from './components/Layout'
 import ErrorPage from './components/ErrorPage';
+import NotFoundError from './components/notFoundError';
+
 
 // import { getProjects } from './api';
 
@@ -24,12 +26,13 @@ import ErrorPage from './components/ErrorPage';
 function App() {
  
   const router = createBrowserRouter(createRoutesFromElements(
-    <Route errorElement={<ErrorPage />} path='/' element={<Layout />}>
+    <Route path='/' element={<Layout />}>
       <Route index element={<Home />} />
       <Route path='about' element={<About />} />
       <Route path='contect' action={contactAction} element={<Contact />} />
       <Route path='projects' errorElement={<ErrorPage />} loader={loaderProjects} element={<Projects />} />
       <Route path='projects/:id' errorElement={<ErrorPage />} loader={loaderProjectsDetail} element={<ProjectsDetail />} />
+      <Route path='*' element={<NotFoundError />} />
     </Route>
   ))
 
