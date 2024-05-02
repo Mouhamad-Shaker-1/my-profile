@@ -12,6 +12,8 @@ import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons'
 import { faSquareTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
+
+
 const iconsLang = {
     HTML: {
         color: '#F4470B',

@@ -11,6 +11,7 @@ export default function Project(props) {
     const languages = getValuesFromObject(props.data.languages)
 
     const iconProject = languages.map(lang => {
+        // console.log(iconsLang)
         return (
             <FontAwesomeIcon
                 style={{ color: iconsLang[lang].color }}

@@ -89,14 +89,14 @@ export default function Projects() {
                     React
                 </button>
 
-                <button 
+                {/* <button 
                     onClick={
                         () => handleFilterChange('type', 'react router')
                     }
                     className={typeFilter === 'react router' ? 'selected' : ''}
                 >
                     React Router
-                </button>
+                </button> */}
 
                 <button 
                     onClick={
