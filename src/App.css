@@ -1,0 +1,403 @@
+
+.backColor {
+    color: black;
+}
+
+.flex {
+    display: flex;
+    gap: 1em;
+}
+
+.contianer-loading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contianer-error {
+    height: calc(100vh - 8rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contianer-error h5 {
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+@media (min-width: 680px) {
+    .contianer-error h5 {
+        width: 50%;
+    }
+}
+
+
+/* ======= navbar ====== */
+
+
+.contianer {
+    width: 80%;
+    margin: auto;
+    height: 100%;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navlink {
+    color: black;
+    text-decoration: none;
+    margin-left: 1em;
+    color: #fff;
+    /* display: block; */
+    margin-top: .4em;
+}
+
+.navlink:hover, .active {
+    color: #032c34;
+    font-weight: bolder;
+}
+
+.logo {
+    color: #fff;
+}
+
+.icon-list {
+    font-size: 2rem;
+    color: #fff;
+}
+
+
+
+/* ======= navbar medai ====== */
+
+@media (min-width: 680px) {
+    .icon-list {
+        display: none;
+    }
+
+    .contianer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+
+/* ======= navbar medai ====== */
+
+/* ======= home intro section ========= */
+
+.section-home {
+    height: calc(100vh - 8rem);
+}
+
+.constianer-intro {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.intro {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.img-intro {
+    width: 90%;
+}
+
+.icon {
+    font-size: 2rem;
+    margin-right: .5em;
+}
+
+.container-icon {
+    margin: .8em 0;
+    display: flex;
+}
+
+/* ======= home intro section media ========= */
+
+
+@media (min-width: 680px) {
+    .constianer-intro {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .img-intro {
+        width: 45%;
+    }
+    .intro {
+        width: 45%;
+    }
+}
+
+/* ======= home intro section media ========= */
+
+
+/* ========== about frist section ============ */
+
+
+.about-img-main {
+    width: 100%;
+    margin: .7em 0;
+    
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: .5em;
+    font-size: 2.5rem;
+}
+
+.btn-about-info {
+    margin-right: .5em;
+}
+
+.container-about-info p {
+    margin-bottom: 1em;
+}
+
+/* ========== about frist section media ============ */
+
+@media (min-width: 800px) {
+    .container-info-img {
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .container-about-info {
+        width: 40%;
+    }
+    .about-img-main {
+        width: 50%;
+        margin: .7em 0;
+        
+    }
+}
+
+/* ========== about frist section media ============ */
+
+/* ========== porject section ============= */
+
+.contianer-search-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em;
+}
+
+.section-projects {
+    min-height: calc(100vh - 8rem);
+}
+
+
+.selected {
+    border: 1.5px solid #238D9D;
+    background-color: #F8F9FA;
+    color: #238D9D;
+}
+
+
+.contianer-projects {
+    height: 70vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 1em 0;
+}
+
+.project {
+    border: 2px solid #C2C4C5;
+    border-radius: .4em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* width: 100%; */
+}
+
+.img-project {
+    width: 100%;
+    border-radius: .4em .4em 0 0;
+}
+
+.lang-projects-page {
+    margin: .3em 0;
+}
+
+.contianer-info-project {
+    padding: 1em;
+}
+
+
+/* ========== porject section media ============= */
+
+
+@media (min-width: 680px) {
+    .project {
+        width: 48.5%;
+        flex-grow: 0;
+        min-height: 447px;
+    }
+}
+
+
+/* ========== porject section media ============= */
+
+
+/* ========== project detail section ============ */
+
+
+.section-project-detail {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.go-back {
+    color: gray;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.container-lang {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .5em;
+}
+
+.lang {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: .17em .5em;
+    /* padding: 0 .4em; */
+    border-radius: 40px;
+    border: 1px solid #C2C4C5;
+}
+
+.lang .icon {
+    font-size: 1.8rem;
+}
+
+.container-imgs-project {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 1em 0;
+}
+
+.imgs-project {
+    width: 100%;
+    border: 1px solid #C2C4C5;
+    border-radius: 0.4em;
+}
+
+
+/* ========== project detail section media ============ */
+
+@media (min-width: 680px) {
+    .imgs-project {
+        width: 48.5%;
+    }
+    .container-lang {
+        width: 50%;
+    }
+}
+
+/* ========== project detail section media ============ */
+
+
+/* ================= contact section =============== */
+
+.section-contact {
+    height: calc(100vh - 8rem);
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+}
+
+.contianer-info-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1.5em 0;
+}
+
+.contianer-info-contact h2 {
+    margin-bottom: .5em;
+}
+
+.contianer-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-contact {
+    margin: 1rem auto;
+}
+
+.contianer-info-icons {
+    margin: 1.3em 0;
+}
+
+.contianer-info-icons {
+    /* width: 30%; */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.contianer-info-icons:first-of-type {
+    cursor: auto;
+}
+
+.contianer-info-icons .icon {
+    color: #032c34;
+    height: 1.3rem;
+}
+ 
+
+/* ================= contact section media =============== */
+
+
+@media (min-width: 680px) {
+    .contianer-info-contact {
+        width: 48%;
+    }
+    .contianer-inputs {
+        width: 48%;
+    }
+    .contianer-info-input {
+        flex-direction: row;
+        margin: 4em 0;
+    }
+}
+
+
+/* ================= contact section media =============== */
