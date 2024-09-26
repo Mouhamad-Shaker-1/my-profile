@@ -25,7 +25,7 @@ export async function action({ request }) {
     };
     
     try {
-        await emailjs.send('service_c1neyva', 'template_fbhguks', templateParams)
+        await emailjs.send('service_b16qbuf', 'template_fbhguks', templateParams)
         toast.success('you send the message successfully')
         return null
     } catch (err) {
