@@ -34,11 +34,11 @@ export default function Projects() {
     
     function renderProjects(projectsData) {
 
-        let displayedProjects = typeFilter 
-            ? projectsData.filter(pro => pro.languages.includes(typeFilter))
-            : projectsData
+        // let displayedProjects = typeFilter 
+        //     ? projectsData.filter(pro => pro.languages.includes(typeFilter))
+        //     : projectsData
         
-        return displayedProjects.map(project => {
+        return projectsData.map(project => {
             return <Project
                 state={{
                     search: `?${searchParams.toString()}`
@@ -51,63 +51,6 @@ export default function Projects() {
 
     return (
         <section className="section-projects">
-            <div className="contianer-search-types">
-
-                <button 
-                    onClick={
-                        () => handleFilterChange('type', 'HTML')
-                    }
-                    className={typeFilter === 'HTML' ? 'selected' : ''}
-                >
-                    HTML
-                </button>
-
-                <button 
-                    onClick={
-                        () => handleFilterChange('type', 'CSS')
-                    }
-                    className={typeFilter === 'CSS' ? 'selected' : ''}
-                >
-                    CSS
-                </button>
-
-                <button 
-                    onClick={
-                        () => handleFilterChange('type', 'javascript')
-                    }
-                    className={typeFilter === 'javascript' ? 'selected' : ''}
-                >
-                    javascript
-                </button>
-
-                <button 
-                    onClick={
-                        () => handleFilterChange('type', 'react')
-                    }
-                    className={typeFilter === 'react' ? 'selected' : ''}
-                >
-                    React
-                </button>
-
-                {/* <button 
-                    onClick={
-                        () => handleFilterChange('type', 'react router')
-                    }
-                    className={typeFilter === 'react router' ? 'selected' : ''}
-                >
-                    React Router
-                </button> */}
-
-                <button 
-                    onClick={
-                        () => handleFilterChange('type', null)
-                    }
-                    className={typeFilter === null ? 'selected' : ''}
-                >
-                    All
-                </button>
-
-            </div>
             <div className="contianer-projects">
                 {/* <Loading /> */}
                 <Suspense fallback={<Loading />}>
@@ -119,3 +62,60 @@ export default function Projects() {
         </section>
     )
 }
+{/* <div className="contianer-search-types">
+
+    <button 
+        onClick={
+            () => handleFilterChange('type', 'HTML')
+        }
+        className={typeFilter === 'HTML' ? 'selected' : ''}
+    >
+        HTML
+    </button>
+
+    <button 
+        onClick={
+            () => handleFilterChange('type', 'CSS')
+        }
+        className={typeFilter === 'CSS' ? 'selected' : ''}
+    >
+        CSS
+    </button>
+
+    <button 
+        onClick={
+            () => handleFilterChange('type', 'javascript')
+        }
+        className={typeFilter === 'javascript' ? 'selected' : ''}
+    >
+        javascript
+    </button>
+
+    <button 
+        onClick={
+            () => handleFilterChange('type', 'react')
+        }
+        className={typeFilter === 'react' ? 'selected' : ''}
+    >
+        React
+    </button>
+
+    {/* <button 
+        onClick={
+            () => handleFilterChange('type', 'react router')
+        }
+        className={typeFilter === 'react router' ? 'selected' : ''}
+    >
+        React Router
+    </button> */}
+
+//     <button 
+//         onClick={
+//             () => handleFilterChange('type', null)
+//         }
+//         className={typeFilter === null ? 'selected' : ''}
+//     >
+//         All
+//     </button>
+
+// </div> */}
