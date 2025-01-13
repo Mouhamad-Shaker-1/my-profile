@@ -11,6 +11,7 @@ import { faSquareGithub } from '@fortawesome/free-brands-svg-icons'
 import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons'
 import { faSquareTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faVuejs } from '@fortawesome/free-brands-svg-icons'
 
 
 
@@ -66,6 +67,10 @@ const iconsLang = {
     linkedin: {
         color: '#0073B2',
         icon: faLinkedin
+    },
+    vue: {
+        color: '#35495e',
+        icon: faVuejs
     }
 
 }
